@@ -1,0 +1,83 @@
+clear;
+clc;
+close all;
+
+%% Load image
+
+image = imread("peppers.png");
+
+%% Initialize kernel
+
+kernel_1 = [
+    -1 0 1 ;
+    -1 0 1 ;
+    -1 0 1 ;
+];
+
+kernel_2 = [
+    1 0 -1 ;
+    1 0 -1 ;
+    1 0 -1 ;
+];
+
+kernel_3 = [
+     1  1  1 ;
+     0  0  0 ;
+    -1 -1 -1 ;
+];
+
+kernel_4 = [
+    -1 -1 -1 ;
+     0  0  0 ;
+     1  1  1 ;
+];
+
+kernel_5 = [
+    2 1 0 ;
+    1 2 1 ;
+    0 1 2 ;
+];
+
+% kernel_6 = [
+%     0 1 2 ;
+%     1 2 1 ;
+%     2 1 0 ;
+% ];
+
+%% Normalize kernel
+
+kernel_5 = kernel_5 * (1 / sum(sum(kernel_5)));
+kernel_6 = kernel_6 * (1 / sum(sum(kernel_6)));
+
+%% Filter the image
+
+filtered_1 = imfilter(image, kernel_1);
+filtered_2 = imfilter(image, kernel_2);
+filtered_3 = imfilter(image, kernel_3);
+filtered_4 = imfilter(image, kernel_4);
+filtered_5 = imfilter(image, kernel_5);
+filtered_6 = imfilter(image, kernel_6);
+
+%% Display image
+
+fig = figure("Name", "Image");
+fig.Color = [ 1 1 1 ];
+
+subplot(2, 2, 1);
+
+imshow(image);
+title("Original image");
+
+subplot(2, 2, 2);
+
+filtered = filtered_1 + filtered_2 + filtered_3 + filtered_4 + filtered_5 + filtered_6;
+
+imshow(filtered);
+title("Combined filters");
+
+subplot(2, 1, 2);
+
+montage({filtered_1, filtered_2, filtered_3, filtered_4, filtered_5}, "Size", [ 1 6 ]);
+title("Filters");
+
+
