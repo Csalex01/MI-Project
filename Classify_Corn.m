@@ -40,8 +40,8 @@ for i = 1 : length(image_files)
 
         title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
 
-        filename = "Corn_" + i + "_" + j + ".png";
-        file = fullfile("Training_Set", filename);
+        %filename = "Corn_" + i + "_" + j + ".png";
+        %file = fullfile("Training_Set", filename);
 
         imsave();
 
