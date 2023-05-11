@@ -14,19 +14,11 @@ disp(gTruth.LabelDefinitions);
 
 %% Képek betöltése
 
-% fig = figure("Name", "Training Set");
-% fig.Color = [ 1 1 1 ];
+fig = figure("Name", "Training Set");
+fig.Color = [ 1 1 1 ];
 
 training_set = {};
 labels = {};
-
-%% Címkézett képek mentése
-
-disp("Képek mentése folyamatban...");
-
-%% Címke: Corn
-
-mkdir Training_Set_2/Corn;
 
 for i = 1 : length(image_files)
     
@@ -44,19 +36,18 @@ for i = 1 : length(image_files)
         h = curr_labels(j, 4);
         
         img = curr_image(y : y + h, x : x + w, 1 : 3);
-        
-        % imshow(img);
-        % title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
+        imshow(img);
+
+        title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
 
         filename = "Corn_" + i + "_" + j + ".png";
-        file = fullfile("Training_Set_2", "Corn", filename);
+        file = fullfile("Training_Set", filename);
 
-        imwrite(img, file, "bmp");
+        % imsave();
+        imwrite(img, filename, "")
 
-        % pause(0.25);
+        pause(0.25);
 
     end
 
 end
-
-disp("Képek mentése kész!");
