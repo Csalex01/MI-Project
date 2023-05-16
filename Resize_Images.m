@@ -104,6 +104,3 @@ for i = 1 : length(green_onion_images)
 end
 
 disp("Képek sikeresen újraméretezve: Green_Onion");
-
-
-
