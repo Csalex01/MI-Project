@@ -173,76 +173,76 @@ disp("Elmentve: Pumpkin");
 
 %% Címke: Tomato
 
-mkdir Training_Set/Tomato;
-
-for i = 1 : length(image_files)
-    
-    training_set{i} = imread(image_files{i});
-    labels{i} = gTruth.LabelData.Pumpkin{i};
-
-    curr_image = training_set{i};
-    curr_labels = labels{i};
-
-    for j = 1 : length(curr_labels)
-
-        x = curr_labels(j, 1);
-        y = curr_labels(j, 2);
-        w = curr_labels(j, 3);
-        h = curr_labels(j, 4);
-        
-        img = curr_image(y : y + h, x : x + w, 1 : 3);
-        
-%         imshow(img);
-%         title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
-
-        filename = "Tomato" + i + "_" + j + ".png";
-        file = fullfile("Training_Set", "Tomato", filename);
-
-        imwrite(img, file);
-
-%         pause(0.25);
-
-    end
-
-end
-
-disp("Elmentve: Tomato");
+% mkdir Training_Set/Tomato;
+% 
+% for i = 1 : length(image_files)
+%     
+%     training_set{i} = imread(image_files{i});
+%     labels{i} = gTruth.LabelData.Tomato{i};
+% 
+%     curr_image = training_set{i};
+%     curr_labels = labels{i};
+% 
+%     for j = 1 : length(curr_labels)
+% 
+%         x = curr_labels(j, 1);
+%         y = curr_labels(j, 2);
+%         w = curr_labels(j, 3);
+%         h = curr_labels(j, 4);
+%         
+%         img = curr_image(y : y + h, x : x + w, 1 : 3);
+%         
+% %         imshow(img);
+% %         title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
+% 
+%         filename = "Tomato" + i + "_" + j + ".png";
+%         file = fullfile("Training_Set", "Tomato", filename);
+% 
+%         imwrite(img, file);
+% 
+% %         pause(0.25);
+% 
+%     end
+% 
+% end
+% 
+% disp("Elmentve: Tomato");
 
 %% Címke: Cauliflower
 
-mkdir Training_Set/Cauliflower;
-
-for i = 1 : length(image_files)
-    
-    training_set{i} = imread(image_files{i});
-    labels{i} = gTruth.LabelData.Cauliflower{i};
-
-    curr_image = training_set{i};
-    curr_labels = labels{i};
-
-    for j = 1 : length(curr_labels)
-
-        x = curr_labels(j, 1);
-        y = curr_labels(j, 2);
-        w = curr_labels(j, 3);
-        h = curr_labels(j, 4);
-        
-        img = curr_image(y : y + h, x : x + w, 1 : 3);
-        
-%         imshow(img);
-%         title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
-
-        filename = "Cauliflower" + i + "_" + j + ".png";
-        file = fullfile("Training_Set", "Cauliflower", filename);
-
-        imwrite(img, file);
-
-%         pause(0.25);
-
-    end
-
-end
-
-disp("Elmentve: Cauliflower");
+% mkdir Training_Set/Cauliflower;
+% 
+% for i = 1 : length(image_files)
+%     
+%     training_set{i} = imread(image_files{i});
+%     labels{i} = gTruth.LabelData.Cauliflower{i};
+% 
+%     curr_image = training_set{i};
+%     curr_labels = labels{i};
+% 
+%     for j = 1 : length(curr_labels)
+% 
+%         x = curr_labels(j, 1);
+%         y = curr_labels(j, 2);
+%         w = curr_labels(j, 3);
+%         h = curr_labels(j, 4);
+%         
+%         img = curr_image(y : y + h, x : x + w, 1 : 3);
+%         
+% %         imshow(img);
+% %         title("Corn #" + i + "-" + j + " @(" + x + ", " + y + ")");
+% 
+%         filename = "Cauliflower" + i + "_" + j + ".png";
+%         file = fullfile("Training_Set", "Cauliflower", filename);
+% 
+%         imwrite(img, file);
+% 
+% %         pause(0.25);
+% 
+%     end
+% 
+% end
+% 
+% disp("Elmentve: Cauliflower");
 
 disp("Képek mentése kész!");
